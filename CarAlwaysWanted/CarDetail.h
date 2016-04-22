@@ -27,15 +27,10 @@
     __weak IBOutlet UIButton *cylinderBtn;
     NIDropDown *cylinderDropDown;
     
-    __weak IBOutlet UIButton *bodyBtn;
-    NIDropDown *bodyDropDown;
-    
 }
 
 //year
 - (IBAction)openYearDropDown:(id)sender;
-
-
 @property (weak, nonatomic) IBOutlet UIButton *yearBtn;
 @property (nonatomic, retain) NSMutableArray *yearArray;
 
@@ -63,13 +58,4 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *cylinderBtn;
 @property (nonatomic, retain) NSMutableArray *cylinderArray;
-
-//body type
-- (IBAction)openBodyDropDown:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UIButton *bodyBtn;
-@property (nonatomic, retain) NSMutableArray *bodyArray;
-
-//find you car btn
-- (IBAction)findYourCar;
 @end

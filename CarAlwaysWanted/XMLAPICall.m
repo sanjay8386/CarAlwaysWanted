@@ -132,24 +132,8 @@
 + (void)getCylinder:(NSString *)anDeviceId authKey:(NSString *)anAuthKey year:(NSString *)year make:(NSString *)make model:(NSString *)model transmission:(NSString *)transmission completion: (void (^)(id, NSInteger, NSError*))callback {
     
     if (anAuthKey && anDeviceId) {
-        NSString *xmlgetCylinder =[NSString stringWithFormat:@"<caw><action>getcylinderData</action><parameters><deviceId>%@</deviceId><authkey><![CDATA[%@]]></authkey><year>%@</year><make>%@</make><model>%@</model><transmission>%@</transmission></parameters></caw>",anDeviceId,anAuthKey,year,make,model,transmission];
+        NSString *xmlgetCylinder =[NSString stringWithFormat:@"<caw><action>getcylinderData</action><parameters><deviceId>%@</deviceId><authkey><![CDATA[%@]]></authkey><year>%@</year><make>%@</make><model>%@</model><transmission>%@</transmission></parameters></caw>",anDeviceId,anAuthKey,year,make];
         [self executeAPICall:@"POST" data:xmlgetCylinder completion:callback];
-    }
-}
-
-+ (void)getBody:(NSString *)anDeviceId authKey:(NSString *)anAuthKey year:(NSString *)year make:(NSString *)make model:(NSString *)model transmission:(NSString *)transmission cylinder:(NSString *)cylinder completion: (void (^)(id, NSInteger, NSError*))callback {
-    
-    if (anAuthKey && anDeviceId) {
-        NSString *xmlgetBody =[NSString stringWithFormat:@"<caw><action>getbodytypeData</action><parameters><deviceId>%@</deviceId><authkey><![CDATA[%@]]></authkey><year>%@</year><make>%@</make><model>%@</model><transmission>%@</transmission><cylinder>%@</cylinder></parameters></caw>",anDeviceId,anAuthKey,year,make,model,transmission,cylinder];
-        [self executeAPICall:@"POST" data:xmlgetBody completion:callback];
-    }
-}
-
-+ (void)findcar:(NSString *)anDeviceId authKey:(NSString *)anAuthKey year:(NSString *)year make:(NSString *)make model:(NSString *)model transmission:(NSString *)transmission cylinder:(NSString *)cylinder body:(NSString *)body completion:(void (^)(id, NSInteger, NSError *))callback {
-    
-    if (anAuthKey && anDeviceId) {
-        NSString *xmlFindCar =[NSString stringWithFormat:@"<caw><action>findcar</action><parameters><deviceId>%@</deviceId><authkey><![CDATA[%@]]></authkey><year>%@</year><make>%@</make><model>%@</model><transmission>%@</transmission><cylinder>%@</cylinder><bodytype>%@</bodytype></parameters></caw>",anDeviceId,anAuthKey,year,make,model,transmission,cylinder,body];
-        [self executeAPICall:@"POST" data:xmlFindCar completion:callback];
     }
 }
 
