@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC48303A1CCA068B00A77790 /* SelectYourCar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4830391CCA068B00A77790 /* SelectYourCar.m */; };
+		BC4830411CCA5DF300A77790 /* SelectYourCar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4830401CCA5DF300A77790 /* SelectYourCar.m */; };
 		BC6F2B341CC77C7D004A9F4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F2B331CC77C7D004A9F4C /* main.m */; };
 		BC6F2B371CC77C7D004A9F4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F2B361CC77C7D004A9F4C /* AppDelegate.m */; };
 		BC6F2B3A1CC77C7D004A9F4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F2B391CC77C7D004A9F4C /* ViewController.m */; };
@@ -52,12 +52,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 4EAE94EF1CC9F05B0032937B /* pill-gothic-300mg-light-1361535299.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pill-gothic-300mg-light-1361535299.ttf"; sourceTree = "<group>"; };
 4EAE94F01CC9F05B0032937B /* pillgothic300mg-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pillgothic300mg-bold.ttf"; sourceTree = "<group>"; };
 4EAE94F11CC9F05B0032937B /* pillgothic300mg-oblique.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pillgothic300mg-oblique.ttf"; sourceTree = "<group>"; };
 4EAE94F21CC9F05B0032937B /* pillgothic300mg-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pillgothic300mg-regular.ttf"; sourceTree = "<group>"; };
 4EAE94F71CC9F5F70032937B /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 4EAE94F81CC9F5F70032937B /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+=======
+		4EAE94EF1CC9F05B0032937B /* pill-gothic-300mg-light-1361535299.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pill-gothic-300mg-light-1361535299.ttf"; sourceTree = "<group>"; };
+		4EAE94F01CC9F05B0032937B /* pillgothic300mg-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pillgothic300mg-bold.ttf"; sourceTree = "<group>"; };
+		4EAE94F11CC9F05B0032937B /* pillgothic300mg-oblique.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pillgothic300mg-oblique.ttf"; sourceTree = "<group>"; };
+		4EAE94F21CC9F05B0032937B /* pillgothic300mg-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pillgothic300mg-regular.ttf"; sourceTree = "<group>"; };
+		4EAE94F71CC9F5F70032937B /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		4EAE94F81CC9F5F70032937B /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		BC48303F1CCA5DE900A77790 /* SelectYourCar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectYourCar.h; sourceTree = "<group>"; };
+		BC4830401CCA5DF300A77790 /* SelectYourCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectYourCar.m; sourceTree = "<group>"; };
+>>>>>>> origin/parth
 		BC6F2B2E1CC77C7D004A9F4C /* CarAlwaysWanted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarAlwaysWanted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6F2B321CC77C7D004A9F4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC6F2B331CC77C7D004A9F4C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -165,6 +176,14 @@
 		BC6F2B301CC77C7D004A9F4C /* CarAlwaysWanted */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				BC4830401CCA5DF300A77790 /* SelectYourCar.m */,
+				BC48303F1CCA5DE900A77790 /* SelectYourCar.h */,
+				BC6F31491CC7C45A004A9F4C /* CarDetail.m */,
+				BC6F31481CC7C45A004A9F4C /* CarDetail.h */,
+				4EAE94EE1CC9F0020032937B /* fonts */,
+>>>>>>> origin/parth
 				BC6F2B351CC77C7D004A9F4C /* AppDelegate.h */,
 				BC6F2B361CC77C7D004A9F4C /* AppDelegate.m */,
 				BC6F2B381CC77C7D004A9F4C /* ViewController.h */,
@@ -177,10 +196,15 @@
 				BC6F31011CC7960A004A9F4C /* XMLDictionary.h */,
 				BC6F31021CC7960A004A9F4C /* XMLDictionary.m */,
 				BC6F2B311CC77C7D004A9F4C /* Supporting Files */,
+<<<<<<< HEAD
 				BC6F31481CC7C45A004A9F4C /* CarDetail.h */,
 				BC6F31491CC7C45A004A9F4C /* CarDetail.m */,
 				BC4830381CCA068B00A77790 /* SelectYourCar.h */,
 				BC4830391CCA068B00A77790 /* SelectYourCar.m */,
+=======
+				4EAE94F71CC9F5F70032937B /* MenuItem.h */,
+				4EAE94F81CC9F5F70032937B /* MenuItem.m */,
+>>>>>>> origin/parth
 			);
 			path = CarAlwaysWanted;
 			sourceTree = "<group>";
@@ -405,7 +429,11 @@
 				BC6F31061CC79636004A9F4C /* SWRevealViewController.m in Sources */,
 				BC6F31281CC79752004A9F4C /* AFURLRequestSerialization.m in Sources */,
 				BC6F314A1CC7C45A004A9F4C /* CarDetail.m in Sources */,
+<<<<<<< HEAD
 				BC48303A1CCA068B00A77790 /* SelectYourCar.m in Sources */,
+=======
+				BC4830411CCA5DF300A77790 /* SelectYourCar.m in Sources */,
+>>>>>>> origin/parth
 				BC6F31251CC79752004A9F4C /* AFNetworkReachabilityManager.m in Sources */,
 				BC6F31441CC79778004A9F4C /* UIWebView+AFNetworking.m in Sources */,
 				BC6F31291CC79752004A9F4C /* AFURLResponseSerialization.m in Sources */,

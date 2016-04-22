@@ -15,7 +15,7 @@
 + (void)executeAPICall:(NSString *)verb data: (id )obj completion: (void (^)(id, NSInteger, NSError*))callback {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"data":obj};
-
+    
     [manager POST:BASEURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self processDataCallback:callback response:operation.response data:responseObject error:operation.error];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -31,76 +31,76 @@
     static dispatch_once_t		once;
     static NSOperationQueue		*callQueue;
     dispatch_once(&once, ^ {
-		callQueue = [[NSOperationQueue alloc] init];
-	});
-	
+        callQueue = [[NSOperationQueue alloc] init];
+    });
+    
     return callQueue;
 }
 
 + (void)processDataCallback: (void (^)(id, NSInteger, NSError*))callback
-				   response: (NSHTTPURLResponse *)response
-					   data: (id)data
-					  error: (NSError *)error {
+                   response: (NSHTTPURLResponse *)response
+                       data: (id)data
+                      error: (NSError *)error {
     
     NSInteger	statusCode	= response.statusCode;
-	if (error && !statusCode &&
-		([error code] == NSURLErrorUserCancelledAuthentication))
-		statusCode	= 401;
-	if (callback) {
-		if (error || statusCode == 304)
-			callback(nil, statusCode, error);
-		else {
-			NSError __autoreleasing	*anErr	= nil;
+    if (error && !statusCode &&
+        ([error code] == NSURLErrorUserCancelledAuthentication))
+        statusCode	= 401;
+    if (callback) {
+        if (error || statusCode == 304)
+            callback(nil, statusCode, error);
+        else {
+            NSError __autoreleasing	*anErr	= nil;
             id anObj = [NSDictionary dictionaryWithXMLData:data];
-			if ([[anObj  objectForKey:@"result"] isEqualToString:@"error"]) {
+            if ([[anObj  objectForKey:@"result"] isEqualToString:@"error"]) {
                 anErr	= [NSError errorWithDomain: BASEURL
-											code: statusCode
-										userInfo: @{ NSLocalizedDescriptionKey:[[anObj objectForKey: @"data"] objectForKey:@"errorDescription"] }];
-				
-				callback(nil, statusCode, anErr);
-			} else {
-				callback(anObj, statusCode, anErr);
-			}
-		}
-	}
+                                            code: statusCode
+                                        userInfo: @{ NSLocalizedDescriptionKey:[[anObj objectForKey: @"data"] objectForKey:@"errorDescription"] }];
+                
+                callback(nil, statusCode, anErr);
+            } else {
+                callback(anObj, statusCode, anErr);
+            }
+        }
+    }
 }
 
 + (void)processDateCallback: (void (^)(id, NSInteger, NSError*))callback
-				   response: (NSURLResponse *)response
-					   data: (NSData *)data
-					  error: (NSError *)error {
-	NSInteger	statusCode	= [(NSHTTPURLResponse *)response statusCode];
-	if (error && !statusCode &&
-		([error code] == NSURLErrorUserCancelledAuthentication))
-		statusCode	= 401;
-	
-	if (callback) {
-		if (error || statusCode == 304)
-			callback(nil, statusCode, error);
-		else {
-			NSError __autoreleasing	*anErr	= nil;
+                   response: (NSURLResponse *)response
+                       data: (NSData *)data
+                      error: (NSError *)error {
+    NSInteger	statusCode	= [(NSHTTPURLResponse *)response statusCode];
+    if (error && !statusCode &&
+        ([error code] == NSURLErrorUserCancelledAuthentication))
+        statusCode	= 401;
+    
+    if (callback) {
+        if (error || statusCode == 304)
+            callback(nil, statusCode, error);
+        else {
+            NSError __autoreleasing	*anErr	= nil;
             id anObj = [NSDictionary dictionaryWithXMLData:data];
-			if ([[anObj objectForKey: @"data"] objectForKey:@"result"]) {
-				anErr	= [NSError errorWithDomain: BASEURL
-											code: statusCode
-										userInfo: @{ NSLocalizedDescriptionKey:[anObj objectForKey: @"error"] }];
-				
-				callback(nil, statusCode, anErr);
-			} else {
-				callback(anObj, statusCode, anErr);
-			}
-		}
-	}
+            if ([[anObj objectForKey: @"data"] objectForKey:@"result"]) {
+                anErr	= [NSError errorWithDomain: BASEURL
+                                            code: statusCode
+                                        userInfo: @{ NSLocalizedDescriptionKey:[anObj objectForKey: @"error"] }];
+                
+                callback(nil, statusCode, anErr);
+            } else {
+                callback(anObj, statusCode, anErr);
+            }
+        }
+    }
 }
 
 +(void)verifyDeviceID: (NSString *)anDeviceId  completion: (void (^)(id, NSInteger, NSError*))callback {
     if (anDeviceId) {
-         NSString *STR22 = [NSString stringWithFormat:@"<caw><action>getAuthKeyApple</action><parameters><deviceId>%@</deviceId></parameters></caw>",anDeviceId];
-		[self executeAPICall:@"POST" data:STR22  completion: callback];
+        NSString *STR22 = [NSString stringWithFormat:@"<caw><action>getAuthKeyApple</action><parameters><deviceId>%@</deviceId></parameters></caw>",anDeviceId];
+        [self executeAPICall:@"POST" data:STR22  completion: callback];
         
-	} else {
-		// TODO: Alert user?
-	}
+    } else {
+        // TODO: Alert user?
+    }
 }
 
 
@@ -132,8 +132,24 @@
 + (void)getCylinder:(NSString *)anDeviceId authKey:(NSString *)anAuthKey year:(NSString *)year make:(NSString *)make model:(NSString *)model transmission:(NSString *)transmission completion: (void (^)(id, NSInteger, NSError*))callback {
     
     if (anAuthKey && anDeviceId) {
-        NSString *xmlgetCylinder =[NSString stringWithFormat:@"<caw><action>getcylinderData</action><parameters><deviceId>%@</deviceId><authkey><![CDATA[%@]]></authkey><year>%@</year><make>%@</make><model>%@</model><transmission>%@</transmission></parameters></caw>",anDeviceId,anAuthKey,year,make];
+        NSString *xmlgetCylinder =[NSString stringWithFormat:@"<caw><action>getcylinderData</action><parameters><deviceId>%@</deviceId><authkey><![CDATA[%@]]></authkey><year>%@</year><make>%@</make><model>%@</model><transmission>%@</transmission></parameters></caw>",anDeviceId,anAuthKey,year,make,model,transmission];
         [self executeAPICall:@"POST" data:xmlgetCylinder completion:callback];
+    }
+}
+
++ (void)getBody:(NSString *)anDeviceId authKey:(NSString *)anAuthKey year:(NSString *)year make:(NSString *)make model:(NSString *)model transmission:(NSString *)transmission cylinder:(NSString *)cylinder completion: (void (^)(id, NSInteger, NSError*))callback {
+    
+    if (anAuthKey && anDeviceId) {
+        NSString *xmlgetBody =[NSString stringWithFormat:@"<caw><action>getbodytypeData</action><parameters><deviceId>%@</deviceId><authkey><![CDATA[%@]]></authkey><year>%@</year><make>%@</make><model>%@</model><transmission>%@</transmission><cylinder>%@</cylinder></parameters></caw>",anDeviceId,anAuthKey,year,make,model,transmission,cylinder];
+        [self executeAPICall:@"POST" data:xmlgetBody completion:callback];
+    }
+}
+
++ (void)findcar:(NSString *)anDeviceId authKey:(NSString *)anAuthKey year:(NSString *)year make:(NSString *)make model:(NSString *)model transmission:(NSString *)transmission cylinder:(NSString *)cylinder body:(NSString *)body completion:(void (^)(id, NSInteger, NSError *))callback {
+    
+    if (anAuthKey && anDeviceId) {
+        NSString *xmlFindCar =[NSString stringWithFormat:@"<caw><action>findcar</action><parameters><deviceId>%@</deviceId><authkey><![CDATA[%@]]></authkey><year>%@</year><make>%@</make><model>%@</model><transmission>%@</transmission><cylinder>%@</cylinder><bodytype>%@</bodytype></parameters></caw>",anDeviceId,anAuthKey,year,make,model,transmission,cylinder,body];
+        [self executeAPICall:@"POST" data:xmlFindCar completion:callback];
     }
 }
 
@@ -178,7 +194,7 @@
         NSMutableString *xmlSendNewUserRequest =[NSMutableString stringWithFormat:@"<tsf><action>registerUser</action><parameters><authkey><![CDATA[%@]]></authkey><deviceId>%@</deviceId><company_detail><name>%@</name><abn_no>%@</abn_no><address>%@</address><suburb>%@</suburb><postcode>%@</postcode><state>%@</state><mobile>%@</mobile><fax>%@</fax><users>",anAuthKey,anDeviceId,aName,anAbn_no,anAddress,aSuburb,aPostCode,aState,aPhone,aFax];
         for (int i = 0; i < [aUsername count]; i++) {
             if (![[aUsername objectAtIndex:i] isEqualToString:@"ENTER NAME"] && ![[anUserEmail objectAtIndex:i] isEqualToString:@"ENTER EMAIL"] && ![[userMobile objectAtIndex:i] isEqualToString:@"ENTER MOBILE"]) {
-                 [xmlSendNewUserRequest appendString:[NSString stringWithFormat:@"<user><name>%@</name><email>%@</email><mobile>%@</mobile></user>",[aUsername objectAtIndex:i],[anUserEmail objectAtIndex:i],[userMobile objectAtIndex:i]]];
+                [xmlSendNewUserRequest appendString:[NSString stringWithFormat:@"<user><name>%@</name><email>%@</email><mobile>%@</mobile></user>",[aUsername objectAtIndex:i],[anUserEmail objectAtIndex:i],[userMobile objectAtIndex:i]]];
             } else {
                 
             }
@@ -190,7 +206,7 @@
 
 + (void)getCategoryList:(NSString *)anDeviceId authKey:(NSString *)anAuthKey  completion: (void (^)(id, NSInteger, NSError*))callback {
     if (anDeviceId && anAuthKey) {
-       
+        
         NSString *xmlgetCatlist =[NSString stringWithFormat:@"<tsf><action>getCategories</action><parameters><authkey><![CDATA[%@]]></authkey><deviceId>%@</deviceId><sortOrderField>id</sortOrderField><sortOrderType>asc</sortOrderType><fetchWithProducts>1</fetchWithProducts></parameters></tsf>",anAuthKey,anDeviceId];
         [self executeAPICall:@"POST" data:xmlgetCatlist completion:callback];
     }
@@ -219,20 +235,20 @@
 }
 
 /*
-+(void)sendProductEnquiry:(NSString *)anDeviceId authKey:(NSString *)anAuthKey name:(NSString *)aName email:(NSString *)anEmail phone:(NSString *)aPhone fax:(NSString *)aFax address:(NSString *)anAddress suburb:(NSString *)aSuburb postcode:(NSString *)aPostCode state:(NSString *)aState totalNoOfProducts:(NSString *)aTotalNoOfProducts ProductId:(NSString *)anProductId ProductName:(NSString *)aProductName totalNumberofAttr:(NSString *)aTotalAttr attributeAry:(NSMutableArray *)attributeArray completion: (void (^)(id, NSInteger, NSError*))callback
-{
-    if (anAuthKey && anDeviceId && anProductId && attributeArray.count > 0)
-    {
-        NSMutableString *xmlSendEnquiry =[NSMutableString stringWithFormat:@"<tsf><action>storeEnquiry</action><parameters><authkey><![CDATA[%@]]></authkey><deviceId>%@</deviceId><name>%@</name><email>%@</email><phone>%@</phone><fax>%@</fax><address>%@</address><suburb>%@</suburb><postcode>%@</postcode><state>%@</state><totalNoOfProducts>1</totalNoOfProducts><products><product><productId>%@</productId><productName>%@</productName><totalNoOfAttributes>%@</totalNoOfAttributes><attributes>",anAuthKey,anDeviceId,aName,anEmail,aPhone,aFax,anAddress,aSuburb,aPostCode,aState,anProductId,aProductName,aTotalAttr];
-        for (int i = 0; i < attributeArray.count; i++)
-        {
-            TSAttributes *attributeObj =[attributeArray objectAtIndex:i];
-            [xmlSendEnquiry appendString:[NSString stringWithFormat:@"<attribute><code>%@</code><size>%@</size><weight>%@</weight><qty>%@</qty></attribute>",attributeObj.strCode,attributeObj.strSize,attributeObj.strWeight,attributeObj.strQty]];
-        }
-        [xmlSendEnquiry appendString:@"</attributes></product></products></parameters></tsf>"];
-        [self executeAPICall:@"POST" data:xmlSendEnquiry completion:callback];
-    }
-}*/
+ +(void)sendProductEnquiry:(NSString *)anDeviceId authKey:(NSString *)anAuthKey name:(NSString *)aName email:(NSString *)anEmail phone:(NSString *)aPhone fax:(NSString *)aFax address:(NSString *)anAddress suburb:(NSString *)aSuburb postcode:(NSString *)aPostCode state:(NSString *)aState totalNoOfProducts:(NSString *)aTotalNoOfProducts ProductId:(NSString *)anProductId ProductName:(NSString *)aProductName totalNumberofAttr:(NSString *)aTotalAttr attributeAry:(NSMutableArray *)attributeArray completion: (void (^)(id, NSInteger, NSError*))callback
+ {
+ if (anAuthKey && anDeviceId && anProductId && attributeArray.count > 0)
+ {
+ NSMutableString *xmlSendEnquiry =[NSMutableString stringWithFormat:@"<tsf><action>storeEnquiry</action><parameters><authkey><![CDATA[%@]]></authkey><deviceId>%@</deviceId><name>%@</name><email>%@</email><phone>%@</phone><fax>%@</fax><address>%@</address><suburb>%@</suburb><postcode>%@</postcode><state>%@</state><totalNoOfProducts>1</totalNoOfProducts><products><product><productId>%@</productId><productName>%@</productName><totalNoOfAttributes>%@</totalNoOfAttributes><attributes>",anAuthKey,anDeviceId,aName,anEmail,aPhone,aFax,anAddress,aSuburb,aPostCode,aState,anProductId,aProductName,aTotalAttr];
+ for (int i = 0; i < attributeArray.count; i++)
+ {
+ TSAttributes *attributeObj =[attributeArray objectAtIndex:i];
+ [xmlSendEnquiry appendString:[NSString stringWithFormat:@"<attribute><code>%@</code><size>%@</size><weight>%@</weight><qty>%@</qty></attribute>",attributeObj.strCode,attributeObj.strSize,attributeObj.strWeight,attributeObj.strQty]];
+ }
+ [xmlSendEnquiry appendString:@"</attributes></product></products></parameters></tsf>"];
+ [self executeAPICall:@"POST" data:xmlSendEnquiry completion:callback];
+ }
+ }*/
 
 +(void)sendProductEnquiry:(NSString *)anDeviceId
                   authKey:(NSString *)anAuthKey

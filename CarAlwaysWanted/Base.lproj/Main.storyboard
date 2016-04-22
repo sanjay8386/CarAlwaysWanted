@@ -157,7 +157,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="00FA293D-4C48-4049-A5A6-D696C2FED663" translatesAutoresizingMaskIntoConstraints="NO" id="fii-Fr-08n">
+=======
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="557C5F77-A9AE-432A-9415-C997B13DE4A3" translatesAutoresizingMaskIntoConstraints="NO" id="fii-Fr-08n">
+>>>>>>> origin/parth
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <color key="backgroundColor" red="0.92156869173049927" green="0.21568629145622253" blue="0.27450981736183167" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="tintColor" red="0.92156869173049927" green="0.21568629145622253" blue="0.27843138575553894" alpha="1" colorSpace="deviceRGB"/>
@@ -626,65 +630,125 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_image" translatesAutoresizingMaskIntoConstraints="NO" id="Li7-vF-IvZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_image" translatesAutoresizingMaskIntoConstraints="NO" id="gHS-sE-DTw">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="10" y="10" width="600" height="600"/>
+                                </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wd-67-RhO">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0be-qd-KXY">
                                 <rect key="frame" x="16" y="107" width="150" height="40"/>
-                                <state key="normal" title="Year Of Manufacture"/>
+                                <state key="normal" title="Year of manufacture"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="26" y="117" width="150" height="40"/>
+                                </variation>
                                 <connections>
-                                    <action selector="openYearDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="9m5-4j-V4s"/>
+                                    <action selector="openYearDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="FuC-Ub-DbX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYs-cx-iAu">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="go7-SR-WT5">
                                 <rect key="frame" x="16" y="174" width="150" height="31"/>
                                 <state key="normal" title="Car make">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="26" y="184" width="150" height="31"/>
+                                </variation>
                                 <connections>
-                                    <action selector="openMakeDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="deC-xD-G4l"/>
+                                    <action selector="openMakeDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="QSx-BI-e3L"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61l-Dk-GlZ">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRE-iH-eJo">
                                 <rect key="frame" x="36" y="231" width="110" height="46"/>
                                 <state key="normal" title="Car model">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="46" y="241" width="110" height="46"/>
+                                </variation>
                                 <connections>
-                                    <action selector="openModelDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="QJT-J7-ouo"/>
+                                    <action selector="openModelDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="Fsu-9n-7YP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14Z-7h-jZk">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yM9-R2-3vk">
                                 <rect key="frame" x="20" y="285" width="143" height="67"/>
                                 <state key="normal" title="Transmission type">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="295" width="143" height="67"/>
+                                </variation>
                                 <connections>
-                                    <action selector="openTransmissionDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="EaG-Rl-A81"/>
+                                    <action selector="openTransmissionDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="orQ-3p-uea"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNu-G6-tSf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpa-6w-4hc">
                                 <rect key="frame" x="11" y="380" width="160" height="32"/>
                                 <state key="normal" title="Number of cylinder">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="21" y="390" width="160" height="32"/>
+                                </variation>
                                 <connections>
-                                    <action selector="openCylinderDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="MF5-gZ-8lf"/>
+                                    <action selector="openCylinderDropDown:" destination="42q-rP-BWx" eventType="touchUpInside" id="BQm-1j-KWh"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3W-qQ-xOp">
+                                <rect key="frame" x="44" y="449" width="95" height="21"/>
+                                <state key="normal" title="Body type">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="54" y="459" width="95" height="21"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRz-da-4u4">
+                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                <state key="normal" title="Button" image="fine_your_car_icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="10" y="510" width="600" height="100"/>
+                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="gHS-sE-DTw"/>
+                                <exclude reference="0be-qd-KXY"/>
+                                <exclude reference="go7-SR-WT5"/>
+                                <exclude reference="iRE-iH-eJo"/>
+                                <exclude reference="yM9-R2-3vk"/>
+                                <exclude reference="kpa-6w-4hc"/>
+                                <exclude reference="w3W-qQ-xOp"/>
+                                <exclude reference="HRz-da-4u4"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="gHS-sE-DTw"/>
+                                <include reference="0be-qd-KXY"/>
+                                <include reference="go7-SR-WT5"/>
+                                <include reference="iRE-iH-eJo"/>
+                                <include reference="yM9-R2-3vk"/>
+                                <include reference="kpa-6w-4hc"/>
+                                <include reference="w3W-qQ-xOp"/>
+                                <include reference="HRz-da-4u4"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem title="Item" id="cUu-0k-emV"/>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="cylinderBtn" destination="wNu-G6-tSf" id="Xtb-XL-RuS"/>
-                        <outlet property="makeBtn" destination="eYs-cx-iAu" id="GdG-Rl-caS"/>
-                        <outlet property="modelBtn" destination="61l-Dk-GlZ" id="USL-pl-pPM"/>
-                        <outlet property="transmissionBtn" destination="14Z-7h-jZk" id="h0c-Wy-5Vr"/>
-                        <outlet property="yearBtn" destination="1wd-67-RhO" id="wRZ-5c-6x9"/>
+                        <outlet property="cylinderBtn" destination="kpa-6w-4hc" id="GpC-vG-hCp"/>
+                        <outlet property="makeBtn" destination="go7-SR-WT5" id="sNQ-ug-naZ"/>
+                        <outlet property="modelBtn" destination="iRE-iH-eJo" id="GcY-EH-1Yn"/>
+                        <outlet property="transmissionBtn" destination="yM9-R2-3vk" id="qtR-MC-LPS"/>
+                        <outlet property="yearBtn" destination="0be-qd-KXY" id="oRs-xO-jfa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBe-rZ-MN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -693,7 +757,11 @@
         </scene>
     </scenes>
     <resources>
+<<<<<<< HEAD
         <image name="00FA293D-4C48-4049-A5A6-D696C2FED663" width="960" height="220">
+=======
+        <image name="557C5F77-A9AE-432A-9415-C997B13DE4A3" width="960" height="220">
+>>>>>>> origin/parth
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -11330,6 +11398,7 @@ A
         <image name="HomePage" width="1080" height="1774"/>
         <image name="bg_image" width="1080" height="1920"/>
         <image name="faqs_icon" width="480" height="480"/>
+        <image name="fine_your_car_icon" width="1080" height="146"/>
         <image name="history_icon" width="480" height="480"/>
         <image name="home_icon" width="480" height="480"/>
         <image name="menu_icon_30" width="30" height="29"/>
