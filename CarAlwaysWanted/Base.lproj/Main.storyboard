@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bKE-t4-3vz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F1112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bKE-t4-3vz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -157,7 +157,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="00FA293D-4C48-4049-A5A6-D696C2FED663" translatesAutoresizingMaskIntoConstraints="NO" id="fii-Fr-08n">
+=======
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="557C5F77-A9AE-432A-9415-C997B13DE4A3" translatesAutoresizingMaskIntoConstraints="NO" id="fii-Fr-08n">
+>>>>>>> origin/parth
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <color key="backgroundColor" red="0.92156869173049927" green="0.21568629145622253" blue="0.27450981736183167" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="tintColor" red="0.92156869173049927" green="0.21568629145622253" blue="0.27843138575553894" alpha="1" colorSpace="deviceRGB"/>
@@ -753,7 +757,11 @@
         </scene>
     </scenes>
     <resources>
+<<<<<<< HEAD
+        <image name="00FA293D-4C48-4049-A5A6-D696C2FED663" width="960" height="220">
+=======
         <image name="557C5F77-A9AE-432A-9415-C997B13DE4A3" width="960" height="220">
+>>>>>>> origin/parth
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
