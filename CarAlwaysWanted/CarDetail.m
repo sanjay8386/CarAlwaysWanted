@@ -347,7 +347,7 @@
             [alert show];
             return ;
         } else {
-            NSLog(@"test %@",data);
+            //NSLog(@"test %@",data);
             /*self.cylinderArray = [[NSMutableArray alloc] init];
             [self.cylinderArray addObject:@"Car Make"];
             NSMutableDictionary *dictCatList = [data objectForKey:@"data"];
