@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC48303A1CCA068B00A77790 /* SelectYourCar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4830391CCA068B00A77790 /* SelectYourCar.m */; };
+		4EAE94F31CC9F0A50032937B /* pill-gothic-300mg-light-1361535299.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EAE94EF1CC9F05B0032937B /* pill-gothic-300mg-light-1361535299.ttf */; };
+		4EAE94F41CC9F0A50032937B /* pillgothic300mg-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EAE94F01CC9F05B0032937B /* pillgothic300mg-bold.ttf */; };
+		4EAE94F51CC9F0A50032937B /* pillgothic300mg-oblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EAE94F11CC9F05B0032937B /* pillgothic300mg-oblique.ttf */; };
+		4EAE94F61CC9F0A50032937B /* pillgothic300mg-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EAE94F21CC9F05B0032937B /* pillgothic300mg-regular.ttf */; };
+		4EAE94F91CC9F5F70032937B /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE94F81CC9F5F70032937B /* MenuItem.m */; };
 		BC6F2B341CC77C7D004A9F4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F2B331CC77C7D004A9F4C /* main.m */; };
 		BC6F2B371CC77C7D004A9F4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F2B361CC77C7D004A9F4C /* AppDelegate.m */; };
 		BC6F2B3A1CC77C7D004A9F4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F2B391CC77C7D004A9F4C /* ViewController.m */; };
