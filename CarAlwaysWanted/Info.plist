@@ -30,6 +30,13 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>pill-gothic-300mg-light-1361535299.ttf</string>
+		<string>pillgothic300mg-bold.ttf</string>
+		<string>pillgothic300mg-oblique.ttf</string>
+		<string>pillgothic300mg-regular.ttf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -23,12 +23,5 @@
 #define SECS_IN_30_MIN 	120.0
 #define ACCEPT_TNC @" ACCEPT_TNC"
 
-#define YEAR @"YEAR"
-#define MAKE @"MAKE"
-#define MODEL @"MODEL"
-#define TRANSMISSION @"TRANSMISSION"
-#define CYLINDER @"CYLINDER"
-#define BODY @"BODY"
-
 #endif
 

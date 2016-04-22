@@ -33,10 +33,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     SWRevealViewController *revealViewController = self.revealViewController;
+    self.revealViewController.rightViewRevealWidth = self.view.frame.size.width - 50;
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    
     if(revealViewController){
         [self.openMenu setTarget:self.revealViewController];
         [self.openMenu setAction:@selector(rightRevealToggle:)];
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        
     }
     
 }
