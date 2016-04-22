@@ -10,7 +10,8 @@
 
 @interface SelectYourCar : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
-@property (copy, nonatomic) NSMutableArray *carList;
+//@property (copy, nonatomic) NSMutableArray *carList;
+@property (copy, nonatomic) NSArray *carList;
 
 @property NSString *year;
 @property NSString *make;

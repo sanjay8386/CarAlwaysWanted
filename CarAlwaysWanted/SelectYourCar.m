@@ -30,7 +30,7 @@
     
     [self findCar];
     
-    //self.carList = @[@""];
+    self.carList = @[@"1",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"10",@"11",@"112",@"113",@"123",@"134",@"145",@"156",@"167"];
 //    NSLog(@"%@",year);
 //    NSLog(@"%@",make);
 //    NSLog(@"%@",model);
@@ -56,6 +56,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.carList count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+}
+
 
 -(void)findCar{
     NSString *strDeviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
