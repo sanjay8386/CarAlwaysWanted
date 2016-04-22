@@ -24,6 +24,13 @@
 
 + (void)getCylinder:(NSString *)anDeviceId authKey:(NSString *)anAuthKey year:(NSString *)year make:(NSString *)make model:(NSString *)model transmission:(NSString *)transmission completion: (void (^)(id, NSInteger, NSError*))callback;
 
++ (void)getBody:(NSString *)anDeviceId authKey:(NSString *)anAuthKey year:(NSString *)year make:(NSString *)make model:(NSString *)model transmission:(NSString *)transmission  cylinder:(NSString *)cylinder completion: (void (^)(id, NSInteger, NSError*))callback;
+
++ (void)findcar:(NSString *)anDeviceId authKey:(NSString *)anAuthKey year:(NSString *)year make:(NSString *)make model:(NSString *)model transmission:(NSString *)transmission  cylinder:(NSString *)cylinder body:(NSString *)body completion: (void (^)(id, NSInteger, NSError*))callback;
+
+
+
+
 
 
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC48303A1CCA068B00A77790 /* SelectYourCar.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4830391CCA068B00A77790 /* SelectYourCar.m */; };
 		BC6F2B341CC77C7D004A9F4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F2B331CC77C7D004A9F4C /* main.m */; };
 		BC6F2B371CC77C7D004A9F4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F2B361CC77C7D004A9F4C /* AppDelegate.m */; };
 		BC6F2B3A1CC77C7D004A9F4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6F2B391CC77C7D004A9F4C /* ViewController.m */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC4830381CCA068B00A77790 /* SelectYourCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectYourCar.h; sourceTree = "<group>"; };
+		BC4830391CCA068B00A77790 /* SelectYourCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectYourCar.m; sourceTree = "<group>"; };
 		BC6F2B2E1CC77C7D004A9F4C /* CarAlwaysWanted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarAlwaysWanted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC6F2B321CC77C7D004A9F4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC6F2B331CC77C7D004A9F4C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,7 +117,7 @@
 		BC6F31461CC79A87004A9F4C /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BC6F31471CC79B4B004A9F4C /* CarAlwaysWanted-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarAlwaysWanted-prefix.pch"; sourceTree = "<group>"; };
 		BC6F31481CC7C45A004A9F4C /* CarDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDetail.h; sourceTree = "<group>"; };
-		BC6F31491CC7C45A004A9F4C /* CarDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetail.m; sourceTree = "<group>"; };
+		BC6F31491CC7C45A004A9F4C /* CarDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetail.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BC6F314B1CC7C5DB004A9F4C /* NIDropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIDropDown.h; sourceTree = "<group>"; };
 		BC6F314C1CC7C5DB004A9F4C /* NIDropDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIDropDown.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +175,8 @@
 				BC6F2B311CC77C7D004A9F4C /* Supporting Files */,
 				BC6F31481CC7C45A004A9F4C /* CarDetail.h */,
 				BC6F31491CC7C45A004A9F4C /* CarDetail.m */,
+				BC4830381CCA068B00A77790 /* SelectYourCar.h */,
+				BC4830391CCA068B00A77790 /* SelectYourCar.m */,
 			);
 			path = CarAlwaysWanted;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 				BC6F31061CC79636004A9F4C /* SWRevealViewController.m in Sources */,
 				BC6F31281CC79752004A9F4C /* AFURLRequestSerialization.m in Sources */,
 				BC6F314A1CC7C45A004A9F4C /* CarDetail.m in Sources */,
+				BC48303A1CCA068B00A77790 /* SelectYourCar.m in Sources */,
 				BC6F31251CC79752004A9F4C /* AFNetworkReachabilityManager.m in Sources */,
 				BC6F31441CC79778004A9F4C /* UIWebView+AFNetworking.m in Sources */,
 				BC6F31291CC79752004A9F4C /* AFURLResponseSerialization.m in Sources */,

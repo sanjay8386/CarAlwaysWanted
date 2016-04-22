@@ -11,6 +11,7 @@
 #import "QuartzCore/QuartzCore.h"
 #import "XMLAPICall.h"
 #import "XMLDictionary.h"
+#import "SelectYourCar.h"
 
 @interface CarDetail ()
 
@@ -34,6 +35,8 @@
 @synthesize cylinderBtn;
 @synthesize cylinderArray;
 
+@synthesize bodyBtn;
+@synthesize bodyArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,6 +83,14 @@
     cylinderBtn.layer.borderWidth = 1;
     cylinderBtn.layer.borderColor = [[UIColor blackColor] CGColor];
     cylinderBtn.layer.cornerRadius = 5;
+    
+    //body part
+    self.bodyArray = [[NSMutableArray alloc] init];
+    [self.bodyArray addObject:@"Body type"];
+    
+    bodyBtn.layer.borderWidth = 1;
+    bodyBtn.layer.borderColor = [[UIColor blackColor] CGColor];
+    bodyBtn.layer.cornerRadius = 5;
     // Do any additional setup after loading the view.
 }
 
@@ -100,6 +111,9 @@
     
     cylinderBtn = nil;
     [self setCylinderBtn:nil];
+    
+    bodyBtn = nil;
+    [self setBodyBtn:nil];
     
     
     [super viewDidUnload];
@@ -137,7 +151,9 @@
     if(sender == cylinderDropDown){
         [self relCylinder];
     }
-    
+    if(sender == bodyDropDown){
+        [self relBody];
+    }
     
     
 }
@@ -165,6 +181,7 @@
     if(![yearBtn.currentTitle  isEqual: @"Year of manufacture"]){
         //NSLog(@"%@",yearBtn.currentTitle);
         [self getMake];
+        [self emptyFromYear];
     } else {
        
     }
@@ -223,6 +240,7 @@
     if(![makeBtn.currentTitle  isEqual: @"Car make"]){
         NSLog(@"%@",makeBtn.currentTitle);
         [self getModel];
+        [self emptyFromMake];
     } else {
         
     }
@@ -275,13 +293,21 @@
             [alert show];
             return ;
         } else {
-            //NSLog(@"%@",data);
+            NSLog(@"%@",data);
             self.modelArray = [[NSMutableArray alloc] init];
             [self.modelArray addObject:@"Car Model"];
             NSMutableDictionary *dictCatList = [data objectForKey:@"data"];
             self.modelArray = [[dictCatList objectForKey:@"model"] objectForKey:@"modelname"];
+            if([self.modelArray isKindOfClass:[NSMutableArray class]]){
+                NSLog(@"ARRAY");
+            }else{
+                NSLog(@"String");
+                NSString *tempString = self.modelArray;
+                self.modelArray = [[NSMutableArray alloc] init];
+                [self.modelArray addObject:@"Car Model"];
+                [self.modelArray addObject:tempString];
+            }
             NSLog(@"%@",self.modelArray);
-            
         }
     }];
 }
@@ -290,7 +316,7 @@
     //    [dropDown release];
     modelDropDown = nil;
     if(![modelBtn.currentTitle  isEqual: @"Car model"]){
-        NSLog(@"%@",modelBtn.currentTitle);
+        [self emptyFromModel];
     } else {
         
     }
@@ -321,6 +347,7 @@
     transmissionDropDown = nil;
     if(![transmissionBtn.currentTitle  isEqual: @"Transmission type"]){
         [self getCylinder];
+        [self emptyFromTransmission];
     } else {
         
     }
@@ -330,8 +357,8 @@
     //    [dropDown release];
     cylinderDropDown = nil;
     if(![cylinderBtn.currentTitle  isEqual: @"Car make"]){
-        NSLog(@"%@",cylinderBtn.currentTitle);
-        //[self getModel];
+        [self getBody];
+        [self emptyFromCylinder];
     } else {
         
     }
@@ -347,12 +374,29 @@
             [alert show];
             return ;
         } else {
-            //NSLog(@"test %@",data);
-            /*self.cylinderArray = [[NSMutableArray alloc] init];
-            [self.cylinderArray addObject:@"Car Make"];
-            NSMutableDictionary *dictCatList = [data objectForKey:@"data"];
-            self.cylinderArray = [[dictCatList objectForKey:@"make"] objectForKey:@"makename"];*/
-            //NSLog(@"%@",self.makeArray);
+            NSLog(@"test %@",data);
+            NSString *noRecord =[NSString stringWithFormat:@"%@",[[[data objectForKey:@"data"] objectForKey:@"cylinder"] objectForKey:@"norecord"]];
+            NSLog(@"test %@",noRecord);
+            if([noRecord  isEqual: @"No record"]){
+                NSLog(@"noRecord");
+            } else {
+                NSString *mincylinder =[NSString stringWithFormat:@"%@",[[[data objectForKey:@"data"] objectForKey:@"cylinder"] objectForKey:@"mincylinder"]];
+                NSString *maxcylinder =[NSString stringWithFormat:@"%@",[[[data objectForKey:@"data"] objectForKey:@"cylinder"] objectForKey:@"maxcylinder"]];
+                
+                NSInteger mincylinderInt = [mincylinder integerValue];
+                NSInteger maxcylinderInt = [maxcylinder integerValue];
+                
+                self.cylinderArray = [[NSMutableArray alloc] init];
+                [self.cylinderArray addObject:@"Number of cylinder"];
+                if(mincylinderInt == maxcylinderInt){
+                    [self.cylinderArray addObject:[NSString stringWithFormat:@"%@", mincylinder]];
+                } else {
+                    for(int i = mincylinderInt; i < maxcylinderInt; i++){
+                        [self.cylinderArray addObject:[NSString stringWithFormat:@"%i", i]];
+                    }
+                }
+            }
+            
             
         }
     }];
@@ -376,4 +420,192 @@
         [self relCylinder];
     }
 }
+
+-(void)getBody{
+    NSString *strDeviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *strAuth =[ud valueForKey:AUTHKEY];
+    [XMLAPICall getBody:strDeviceId authKey:strAuth year:yearBtn.currentTitle make:makeBtn.currentTitle model:modelBtn.currentTitle transmission:transmissionBtn.currentTitle cylinder:cylinderBtn.currentTitle  completion:^(id data, NSInteger status, NSError *error) {
+        if (error || (status != 200)) {
+            UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            return ;
+        } else {
+            NSLog(@"%@",data);
+            self.bodyArray = [[NSMutableArray alloc] init];
+            [self.bodyArray addObject:@"Body type"];
+            
+            NSString *noRecord =[NSString stringWithFormat:@"%@",[[[data objectForKey:@"data"] objectForKey:@"BodyStyle"] objectForKey:@"norecord"]];
+            if([noRecord  isEqual: @"No record"]){
+                NSLog(@"noRecord");
+            } else {
+                
+                NSMutableDictionary *dictCatList = [data objectForKey:@"data"];
+                self.bodyArray = [[dictCatList objectForKey:@"BodyStyle"] objectForKey:@"BodyStyleDescription"];
+                if([self.bodyArray isKindOfClass:[NSMutableArray class]]){
+                    NSLog(@"ARRAY");
+                }else{
+                    NSLog(@"String");
+                    NSString *tempString = self.bodyArray;
+                    self.bodyArray = [[NSMutableArray alloc] init];
+                    [self.bodyArray addObject:@"Body type"];
+                    [self.bodyArray addObject:tempString];
+                }
+                NSLog(@"%@",self.bodyArray);
+            }
+            
+        }
+    }];
+}
+
+-(void)relBody{
+    //    [dropDown release];
+    bodyDropDown = nil;
+    if(![bodyBtn.currentTitle  isEqual: @"Body type"]){
+        
+    } else {
+        
+    }
+}
+
+- (IBAction)openBodyDropDown:(id)sender {
+    NSArray *myArray = [self.bodyArray copy];
+    if(bodyDropDown == nil) {
+        CGFloat f = 200;
+        bodyDropDown = [[NIDropDown alloc]showDropDown:sender :&f :myArray :nil :@"down"];
+        bodyDropDown.delegate = self;
+        
+        bodyDropDown.userInteractionEnabled=YES;
+    }
+    else {
+        [bodyDropDown hideDropDown:sender];
+        [self relBody];
+    }
+}
+
+-(void)emptyFromYear{
+    
+    if(![yearBtn.currentTitle  isEqual: @"Year of manufacture"]){
+        [self.makeBtn setTitle:@"Car make" forState:(UIControlStateNormal)];
+        [self.modelBtn setTitle:@"Car model" forState:(UIControlStateNormal)];
+        [self.transmissionBtn setTitle:@"Transmission type" forState:(UIControlStateNormal)];
+        [self.cylinderBtn setTitle:@"Number of cylinder" forState:(UIControlStateNormal)];
+        [self.bodyBtn setTitle:@"Body type" forState:(UIControlStateNormal)];
+    }
+}
+
+-(void)emptyFromMake{
+    
+    if(![makeBtn.currentTitle  isEqual: @"Car make"]){
+        [self.modelBtn setTitle:@"Car model" forState:(UIControlStateNormal)];
+        [self.transmissionBtn setTitle:@"Transmission type" forState:(UIControlStateNormal)];
+        [self.cylinderBtn setTitle:@"Number of cylinder" forState:(UIControlStateNormal)];
+        [self.bodyBtn setTitle:@"Body type" forState:(UIControlStateNormal)];
+    }
+}
+
+-(void)emptyFromModel{
+    
+    if(![modelBtn.currentTitle  isEqual: @"Car model"]){
+        [self.transmissionBtn setTitle:@"Transmission type" forState:(UIControlStateNormal)];
+        [self.cylinderBtn setTitle:@"Number of cylinder" forState:(UIControlStateNormal)];
+        [self.bodyBtn setTitle:@"Body type" forState:(UIControlStateNormal)];
+    }
+}
+
+-(void)emptyFromTransmission{
+    
+    if(![transmissionBtn.currentTitle  isEqual: @"Transmission type"]){
+        [self.cylinderBtn setTitle:@"Number of cylinder" forState:(UIControlStateNormal)];
+        [self.bodyBtn setTitle:@"Body type" forState:(UIControlStateNormal)];
+    }
+}
+
+-(void)emptyFromCylinder{
+    
+    if(![cylinderBtn.currentTitle  isEqual: @"Number of cylinder"]){
+        [self.bodyBtn setTitle:@"Body type" forState:(UIControlStateNormal)];
+    }
+}
+- (IBAction)findYourCar {
+    if([yearBtn.currentTitle  isEqual: @"Year of manufacture"] || [makeBtn.currentTitle  isEqual: @"Car make"]){
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select year and make" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        return ;
+    } else {
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setValue:yearBtn.currentTitle forKey:YEAR];
+        [ud setValue:makeBtn.currentTitle forKey:MAKE];
+        if(![modelBtn.currentTitle  isEqual: @"Car model"]){
+            [ud setValue:modelBtn.currentTitle forKey:MODEL];
+        } else {
+            [ud setValue:@"" forKey:MODEL];
+        }
+        
+        if(![transmissionBtn.currentTitle  isEqual: @"Transmission type"]){
+            [ud setValue:transmissionBtn.currentTitle forKey:TRANSMISSION];
+        } else {
+            [ud setValue:@"" forKey:TRANSMISSION];
+        }
+        
+        if(![cylinderBtn.currentTitle  isEqual: @"Number of cylinder"]){
+            [ud setValue:cylinderBtn.currentTitle forKey:CYLINDER];
+        } else {
+            [ud setValue:@"" forKey:CYLINDER];
+        }
+        
+        if(![bodyBtn.currentTitle  isEqual: @"Body type"]){
+            [ud setValue:bodyBtn.currentTitle forKey:BODY];
+        } else {
+            [ud setValue:@"" forKey:BODY];
+        }
+        [ud synchronize];
+        SelectYourCar *selectYourCar = [[SelectYourCar alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:selectYourCar animated:nil];
+        NSLog(@"Next Page");
+    }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if([yearBtn.currentTitle  isEqual: @"Year of manufacture"] || [makeBtn.currentTitle  isEqual: @"Car make"]){
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error" message:@"Please select year and make" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    } else {
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setValue:yearBtn.currentTitle forKey:YEAR];
+        [ud setValue:makeBtn.currentTitle forKey:MAKE];
+        if(![modelBtn.currentTitle  isEqual: @"Car model"]){
+            [ud setValue:modelBtn.currentTitle forKey:MODEL];
+        } else {
+            [ud setValue:@"" forKey:MODEL];
+        }
+        
+        if(![transmissionBtn.currentTitle  isEqual: @"Transmission type"]){
+            [ud setValue:transmissionBtn.currentTitle forKey:TRANSMISSION];
+        } else {
+            [ud setValue:@"" forKey:TRANSMISSION];
+        }
+        
+        if(![cylinderBtn.currentTitle  isEqual: @"Number of cylinder"]){
+            [ud setValue:cylinderBtn.currentTitle forKey:CYLINDER];
+        } else {
+            [ud setValue:@"" forKey:CYLINDER];
+        }
+        
+        if(![bodyBtn.currentTitle  isEqual: @"Body type"]){
+            [ud setValue:bodyBtn.currentTitle forKey:BODY];
+        } else {
+            [ud setValue:@"" forKey:BODY];
+        }
+        [ud synchronize];
+        //SelectYourCar *selectYourCar = [[SelectYourCar alloc] initWithNibName:nil bundle:nil];
+        //[self.navigationController pushViewController:selectYourCar animated:nil];
+        NSLog(@"Next Page");
+    }
+    
+    // by default perform the segue transition
+    return YES;
+}
+
 @end

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAlwaysWanted/CarDetail.m"
-            timestampString = "482942913.590554"
+            timestampString = "483010920.485533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "-getYear"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAlwaysWanted/CarDetail.m"
-            timestampString = "482942913.590554"
+            timestampString = "483010920.485533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-openYearDropDown:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAlwaysWanted/CarDetail.m"
-            timestampString = "482942913.590554"
+            timestampString = "483010920.485533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "-openYearDropDown:"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAlwaysWanted/CarDetail.m"
-            timestampString = "482942913.590554"
+            timestampString = "483010920.485533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "-niDropDownDelegateMethod:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAlwaysWanted/CarDetail.m"
-            timestampString = "482942913.590554"
+            timestampString = "483010920.485533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "-getMake"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAlwaysWanted/CarDetail.m"
-            timestampString = "482943207.158425"
+            timestampString = "483010920.485533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "-getCylinder"
             landmarkType = "5">
          </BreakpointContent>
